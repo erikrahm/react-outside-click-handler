@@ -6,6 +6,7 @@ import { addEventListener } from 'consolidated-events';
 
 const DISPLAY = {
   BLOCK: 'block',
+  FLEX: 'flex',
   INLINE_BLOCK: 'inline-block',
 };
 
@@ -112,7 +113,7 @@ export default class OutsideClickHandler extends React.Component {
     return (
       <div
         ref={this.setChildNodeRef}
-        style={display === DISPLAY.INLINE_BLOCK ? { display } : undefined}
+        style={Object.values(DISPLAY).includes(display) ? { display } : undefined}
       >
         {children}
       </div>
